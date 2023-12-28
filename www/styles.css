@@ -1,0 +1,147 @@
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.search {
+  display: block;
+  width: 100%;
+  max-width: 380px;
+  margin: 100px auto 50px;
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+.todos {
+  width: 100%;
+  max-width: 380px;
+  margin: auto;
+  border: 1px solid #ccc;
+}
+
+.todos td {
+  border: 1px solid #ccc;
+  padding: 10px 5px;
+  text-align: center;
+}
+
+.todo {
+  padding: 0 20px;
+}
+.todo__item {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+.todo__label {
+  min-width: 200px;
+  text-align: left;
+  margin-right: 10px;
+}
+.todo__field {
+  width: 300px;
+  padding: 10px;
+}
+
+.pagination {
+  padding: 50px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+.pagination__btn {
+  padding: 10px;
+  background-color: #eee;
+  border: 1px solid #eee;
+}
+.pagination__btn--active {
+  background-color: #ccc;
+  border: 1px solid #ccc;
+}
+
+/* ********* modals ********* */
+
+.modals__wrapper {
+  position: relative;
+  width: 100%;
+  min-height: 100%;
+  padding-top: 30px;
+  padding-bottom: 20px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modals {
+	position: fixed;
+	z-index: 99999999999;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	
+	overflow-x: hidden;
+	overflow-y: scroll;
+
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+  transition: .3s;
+}
+
+.modals.show {
+  opacity: 1;
+  pointer-events: auto;
+  visibility: visible;
+}
+
+.modals__header {
+  border-bottom: 1px solid #ccc;
+  padding: 10px 5px;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.modals__item {
+  position: relative;
+  z-index: 1;
+  background-color: #eee;
+  border: 1px solid #ccc;
+
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+  transition: .3s;
+}
+
+.modals__item.show {
+  opacity: 1;
+  pointer-events: auto;
+  visibility: visible;
+}
+
+.modals__bg {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  min-height: 100%;
+  background-color: rgba(255,255,255,.5);
+  z-index: 0;
+  cursor: pointer;
+}
+
+.modals__close-btn {
+  display: block;
+  margin: 30px auto;
+  padding: 10px 50px;
+  cursor: pointer;
+}
