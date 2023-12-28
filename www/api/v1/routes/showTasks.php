@@ -13,9 +13,10 @@ function showTasks($start, $limit, $SEARCH) {
       $WHERE = "WHERE title Like '%$SEARCH%'";
     }
 
-    $SQL = "SELECT id, title, date FROM tasks $WHERE ORDER BY DESC `id` LIMIT $start, $limit";
+    $SQL = "SELECT `id`, `title`, `date` FROM tasks $WHERE ORDER BY `id` DESC LIMIT $start, $limit";
     $statement = $pdo->prepare($SQL);
     $statement->execute();
+
   
     $tasks = $statement->fetchAll(PDO::FETCH_ASSOC);
   
@@ -25,7 +26,7 @@ function showTasks($start, $limit, $SEARCH) {
       die(json_encode(array("status" => true, "data" => $tasks)));
     }
   } catch (PDOException $e) {
-    die(json_encode(array("status" => false, "message" => "error")));
+    die(json_encode(array("status" => false, "message" => "error" . $e)));
   }
 }
 
