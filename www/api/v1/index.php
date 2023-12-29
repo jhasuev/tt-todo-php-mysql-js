@@ -13,7 +13,7 @@ $id = abs($params[1] * 1);
 if ($type === 'tasks') {
   $start = abs(filter_input(INPUT_GET, 'start', FILTER_VALIDATE_INT));
   $limit = abs(filter_input(INPUT_GET, 'limit', FILTER_VALIDATE_INT));
-  $search = $_GET['s'];
+  $search = urldecode($_GET['s']);
   
   showTasks($start, $limit, $search);
 }

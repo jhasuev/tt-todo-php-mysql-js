@@ -9,7 +9,11 @@
 </head>
 <body>
 
-  <input type="text" class="search" placeholder="Поиск">
+  <i class="circle-preloader"></i>
+
+  <form method="get" onsubmit="return todos.onSearchSubmit()">
+    <input id="search" name="s" type="text" class="search" placeholder="Поиск">
+  </form>
 
   <table class="todos" cellspacing="0">
     <thead>
@@ -19,18 +23,13 @@
         <td>Дата выполненеия</td>
       </tr>
     </thead>
-    <tbody>
-      <tr onclick="modalOpen('todo')">
-        <td>11</td>
-        <td>11</td>
-        <td>11</td>
-      </tr>
+    <tbody id="todosBodyWrapper">
+      <!-- тут будут все таски -->
     </tbody>
   </table>
 
-  <div class="pagination">
-    <button class="pagination__btn" type="button">1</button>
-    <button class="pagination__btn pagination__btn--active" type="button">2</button>
+  <div id="pagination" class="pagination">
+    <!-- тут будет пагинация -->
   </div>
 
   <div class="modals">
@@ -38,20 +37,19 @@
       <div id="todo" class="modals__item">
         <div>
           <div class="modals__header">
-            Задача: 1234567
+            Задача: <span id="task-title"></span>
           </div>
-          <div class="todo">
-
+          <div class="todo" id="task-todos">
             <div class="todo__item">
               <div class="todo__label">label</div>
               <input type="text" class="todo__field" disabled>
             </div>
           </div>
 
-          <button button="button" class="modals__close-btn" onclick="modalsClose()">Close</button>
+          <button button="button" class="modals__close-btn" onclick="modal.close()">Close</button>
         </div>
       </div>
-      <div class="modals__bg" onclick="modalsClose()"></div>
+      <div class="modals__bg" onclick="modal.close()"></div>
     </div>
   </div> <!-- /.modals -->
 
