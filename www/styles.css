@@ -26,6 +26,7 @@ body {
 }
 
 .todos td {
+  cursor: pointer;
   border: 1px solid #ccc;
   padding: 10px 5px;
   text-align: center;
